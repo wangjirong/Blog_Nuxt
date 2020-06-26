@@ -25,6 +25,6 @@ export default {
 ._cover-img{
     display: block;
     width: 50vw;
-    height: 45vh;
+    height: 40vh;
 }
 </style>

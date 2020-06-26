@@ -23,7 +23,7 @@
         </span>
         <span class="comment-count item flex-vertical-center" title="评论数量">
           <Icon type="ios-chatbubbles" />
-          {{blog.commentCount}}
+          {{blog.comment.length}}
         </span>
       </div>
       <div class="readmore">
@@ -62,7 +62,7 @@ export default {
       border-radius: 5px;
       display: block;
       width: 20vw;
-      height: auto;
+      height: 20vh;
       &:hover {
         transform: scale(1.01);
       }

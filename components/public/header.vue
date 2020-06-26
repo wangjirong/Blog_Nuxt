@@ -60,7 +60,7 @@ export default {
   height: 7vh;
   min-height: 50px;
   width: 100vw;
-  z-index: 2000;
+  z-index: 1000;
   position: fixed;
   left: 0;
   top: 0;
