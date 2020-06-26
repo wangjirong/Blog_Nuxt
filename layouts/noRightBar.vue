@@ -28,9 +28,9 @@ EHeader,EFooter
   min-height: 100vh;
   
   .container{
-    width: 70vw;
-    margin: 7vh 15vw 1vh;
-    padding: 3vh 1vw;
+    width: 80vw;
+    margin: 7vh 10vw 1vh;
+    padding: 3vh 0;
     min-height: 100vh;
     box-shadow: 5px 5px 5px 15px rgba(100, 100, 100, 0.5);
   }

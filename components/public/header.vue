@@ -58,6 +58,7 @@ export default {
 <style lang="less"  scoped>
 #header {
   height: 7vh;
+  min-height: 50px;
   width: 100vw;
   z-index: 2000;
   position: fixed;

@@ -2,7 +2,7 @@
   <Carousel :value="1" height="auto" loop>
         <CarouselItem v-for="item in blogList" :key="item._id" :title="item.title">
             <nuxt-link :to="'/blog/'+item._id" class="demo-carousel">
-                <img :src="item.cover_img" :alt="item.title" class="_cover-img">
+                <img :src="item.cover.src" :alt="item.title" class="_cover-img">
             </nuxt-link>
         </CarouselItem>
     </Carousel>
@@ -16,7 +16,6 @@ export default {
             required:true
         }
     }
-
 }
 </script>
 <style lang="less">
@@ -26,6 +25,6 @@ export default {
 ._cover-img{
     display: block;
     width: 50vw;
-    height: auto;
+    height: 45vh;
 }
 </style>

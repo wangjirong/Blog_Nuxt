@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="'/blog/'+blog._id" class="blog-item flex-column-center">
     <div class="cover-title-desc flex-vertical">
-      <img :src="blog.cover_img" :alt="blog.title" class="cover-img" :title="blog.title" />
+      <img :src="blog.cover.src" :alt="blog.title" class="cover-img" :title="blog.title" />
       <div class="title-desc flex-column-top">
         <h3 class="title">{{blog.title}}</h3>
         <p class="desc">{{blog.desc}}</p>
@@ -15,7 +15,7 @@
         </span>
         <span class="tags item flex-vertical-center" title="标签">
           <Icon type="md-pricetags" />
-          {{blog.tags}}
+          {{blog.tags.join('、')}}
         </span>
         <span class="read-count item flex-vertical-center" title="阅读次数">
           <Icon type="md-eye" />
@@ -34,11 +34,15 @@
   </nuxt-link>
 </template>
 <script>
+import {handleBlogTimeAndTags} from '../../util/blog'
 export default {
   name: "blog",
   props:{
       blog:{}
   },
+  created(){
+    handleBlogTimeAndTags(this.blog)
+  }
 };
 </script>
 <style lang="less">

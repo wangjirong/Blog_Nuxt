@@ -154,6 +154,12 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     justify-content: center;
     align-items: center;
 }
+.flex-column-space{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: center; */
+}
 
 .flex-column-left {
     display: flex;
