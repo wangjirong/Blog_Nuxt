@@ -22,6 +22,9 @@
         >
       </div>
     </div>
+    <div class="blog-group flex-column-center">
+      <BlogItem v-for="blog in blogList" :key="blog._id" :blog="blog" />
+    </div>
   </div>
 </template>
 
@@ -34,6 +37,9 @@ export default {
     return {
       keyword: '',
     }
+  },
+  components: {
+    BlogItem: () => import('../../components/blog/BlogItem'),
   },
   async asyncData({ $axios }) {
     const res1 = await $axios.get('/tag/getAllTags')
@@ -53,12 +59,15 @@ export default {
         this.$Message.error('暂无数据')
         keyword = ''
         return (this.blogList = await this.getAllBlogs())
-      }
+      } else this.blogList = data
     },
     async getAllBlogs() {
       const { data } = await this.$axios.get('/blog/getAllBlogs')
       return data
     },
+  },
+  created() {
+    console.log(this.blogList)
   },
 }
 </script>
@@ -73,7 +82,7 @@ export default {
       width: 90%;
       text-align: center;
       margin-bottom: 1em;
-      input{
+      input {
         text-align: center;
       }
     }

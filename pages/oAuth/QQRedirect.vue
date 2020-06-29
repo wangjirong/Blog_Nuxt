@@ -1,10 +1,9 @@
 <template>
-  <div class="leaveMessage">留言</div>
+  <div class="qq-oauth">登录中</div>
 </template>
 
 <script>
 export default {
-  layout:"noRightBar"
 
 }
 </script>

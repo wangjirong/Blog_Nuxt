@@ -8,6 +8,10 @@ export default {
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
    */
+  server: {
+    port: 8001,
+    host: '127.0.0.1'
+  },
   head: {
     title: process.env.npm_package_name || '艾瑞的博客',
     meta: [{
@@ -27,6 +31,9 @@ export default {
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
+    }],
+    script: [{
+      src: "http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
     }]
   },
   env: {
@@ -38,9 +45,10 @@ export default {
   css: [
     'iview/dist/styles/iview.css',
     {
-      src:'~assets/css/common.css',ssr:false
+      src: '~assets/css/common.css',
+      ssr: false
     }
-    
+
   ],
   /*
    ** Plugins to load before mounting the App
@@ -71,7 +79,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL:"http://localhost:5000"
+    baseURL: "http://localhost:9000"
   },
   /*
    ** Content module configuration
