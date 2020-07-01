@@ -13,7 +13,7 @@ export default {
     host: '127.0.0.1'
   },
   head: {
-    title: process.env.npm_package_name || '艾瑞的博客',
+    title: '艾瑞的博客',
     meta: [{
         charset: 'utf-8'
       },
@@ -30,7 +30,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicon.ico'
+      href: '~/assets/image/favicon.ico'
     }],
     script: [{
       src: "http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"

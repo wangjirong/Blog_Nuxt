@@ -4,10 +4,8 @@
 
 <script>
 export default {
-
+  layout: 'cover',
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -1,7 +1,9 @@
 <template>
   <div id="header" class="flex-vertical-center">
     <div class="logo">
-      <nuxt-link to="/">艾瑞</nuxt-link>
+      <nuxt-link to="/">
+      <img src="../../assets/image/logo.jpg" class="logo-image" alt="">
+      </nuxt-link>
     </div>
     <ul class="menu-list flex-vertical-center">
       <li class="menu-item" v-for="item in menuList" :key="item.title">
@@ -36,11 +38,11 @@ export default {
           icon: 'ios-map-outline',
           href: '/category',
         },
-        {
-          title: '工具',
-          icon: 'ios-settings',
-          href: '/toolList',
-        },
+        // {
+        //   title: '工具',
+        //   icon: 'ios-settings',
+        //   href: '/toolList',
+        // },
         {
           title: '时间线',
           icon: 'md-time',
@@ -56,11 +58,11 @@ export default {
           icon: 'md-chatboxes',
           href: '/leaveMessage',
         },
-        {
-          title: '壁纸',
-          icon: 'ios-link',
-          href: '/wallpaper',
-        },
+        // {
+        //   title: '壁纸',
+        //   icon: 'ios-link',
+        //   href: '/wallpaper',
+        // },
         {
           title: '关于',
           icon: 'ios-git-merge',
@@ -95,6 +97,13 @@ export default {
   .logo {
     flex: 2;
     text-align: center;
+    .logo-image{
+      display: block;
+      height: 7vh;
+      width: auto;
+      margin-left: 10vw;
+      // opacity: .2;
+    }
     > a {
       color: aliceblue;
       font-size: 1.2rem;
@@ -104,7 +113,9 @@ export default {
     }
   }
   .menu-list {
-    flex: 4;
+    flex: 5;
+    justify-content: flex-end;
+    padding-right: 8vw;
     .menu-item {
       .item-link {
         display: block;
@@ -119,7 +130,8 @@ export default {
   }
   .login-btn {
     flex: 1;
-    margin-right: 50px;
+    margin-right: 100px;
+    overflow: hidden;
   }
 }
 </style>

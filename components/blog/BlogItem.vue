@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="'/blog/'+blog._id" class="blog-item flex-column-center">
+  <nuxt-link :to="'/blog/'+blog._id" target="_blank" class="blog-item flex-column-center">
     <div class="cover-title-desc flex-vertical">
       <img :src="blog.cover.src" :alt="blog.title" class="cover-img" :title="blog.title" />
       <div class="title-desc flex-column-top">

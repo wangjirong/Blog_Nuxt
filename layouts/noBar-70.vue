@@ -1,34 +1,33 @@
 <template>
   <div class="_app background">
     <EHeader />
-    <div class="container">
-      <nuxt/>
-      <Right/>
-    </div>
+
+    <nuxt class="container" />
 
     <EFooter />
 
-     <BackTop :bottom="60" :height="100"></BackTop>
+    <BackTop :bottom="60" :height="100"></BackTop>
   </div>
 </template>
+
 <script>
 import EHeader from '../components/public/header'
 import EFooter from '../components/public/footer'
-
-import Right from '../components/public/rightBar/index'
 export default {
-  components:{
-EHeader,EFooter,Right
-  }
+  components: {
+    EHeader,
+    EFooter,
+  },
 }
 </script>
+
 <style lang="less" scoped>
-._app{
+._app {
   // background: url("https://erics-bucket.oss-cn-beijing.aliyuncs.com/Background-Image/PC/Index_Home/homePage_big_bg_img3.jpg") fixed;
   background-color: #ffffff;
   min-height: 100vh;
-  
-  .container{
+
+  .container {
     width: 70vw;
     margin: 7vh 15vw 1vh;
     padding: 3vh 1vw;

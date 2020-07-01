@@ -1,5 +1,5 @@
 <template>
-  <div class="category">
+  <div class="category flex-column-center">
     <div class="search-nav-tags flex-column-center">
       <Input
         class="input-keyword"
@@ -32,7 +32,7 @@
 import { tagColor } from '../../config/tags'
 import getRandomColor from '../../util/color'
 export default {
-  layout: 'noRightBar',
+  layout: 'noBar-70',
   data() {
     return {
       keyword: '',

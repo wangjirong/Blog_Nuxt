@@ -1,5 +1,5 @@
 <template>
-  <div class="links flex-column-start">
+  <div class="links flex-column-top">
     <ApplyDesc />
     <div class="link-group flex-vertical-start">
       <LinkItem v-for="item in linkList" :key="item._id" :item="item" />
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  layout: 'noRightBar',
+  layout: 'cover',
   async asyncData({ $axios }) {
     const { data } = await $axios.get('/link/getAllLinks')
     return { linkList: data }
@@ -26,8 +26,11 @@ export default {
 <style lang="less" scoped>
 .links {
   padding: 1em 2em;
+  width: 70vw;
+  margin: 0 auto;
   .link-group{
     margin: 1em 0;
+    width: 100%;
   }
 }
 </style>

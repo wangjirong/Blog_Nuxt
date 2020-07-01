@@ -28,17 +28,15 @@ export default {
 <style lang="less" scoped>
 .link-item {
   display: block;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, .8);
   margin: 1em;
   height: 16vh;
   width: 16vw;
   padding: 1em;
-  border-radius: 2px;
+  border-radius: 5px;
   color: #333;
   transition: ease-in-out 1s;
-  box-shadow: 5px 5px 5px 5px #ccc;
   &:hover {
-    box-shadow: 5px 5px 5px 5px #bbbbbb;
     transform: scale(1.1);
   }
   .logo-title {

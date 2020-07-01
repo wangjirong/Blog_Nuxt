@@ -28,9 +28,10 @@ export default {}
 
 <style lang="less" scoped>
 .apply-link-desc {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 1em 2em;
   border-radius: 10px;
+  width: 100%;
   > .title {
     padding: 0 1em;
     font-size: 1.4em;

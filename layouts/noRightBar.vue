@@ -24,7 +24,7 @@ EHeader,EFooter
 <style lang="less" scoped>
 ._app{
   // background: url("https://erics-bucket.oss-cn-beijing.aliyuncs.com/Background-Image/PC/Index_Home/homePage_big_bg_img3.jpg") fixed;
-  background-color: #eeeeee;
+  background-color: #ffffff;
   min-height: 100vh;
   
   .container{
@@ -32,6 +32,7 @@ EHeader,EFooter
     margin: 7vh 10vw 1vh;
     padding: 3vh 0;
     min-height: 100vh;
+    background-color: #eeeeee;
     box-shadow: 5px 5px 5px 15px rgba(100, 100, 100, 0.5);
   }
 }
