@@ -87,7 +87,7 @@ export default {
   height: 7vh;
   min-height: 50px;
   width: 100vw;
-  z-index: 1000;
+  z-index: 2;
   position: fixed;
   left: 0;
   top: 0;

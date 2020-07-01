@@ -34,6 +34,9 @@
         previewBackground="#fff"
       />
     </no-ssr>
+    <Info :info="blog" />
+    <Share />
+    <Comment/>
   </div>
 </template>
 
@@ -53,10 +56,15 @@ export default {
       toolbars,
     }
   },
+  components: {
+    Share: () => import('../../components/blog/detail/Share'),
+    Info: () => import('../../components/blog/detail/Info'),
+    Comment:()=>import('../../components/blog/detail/Comment')
+  },
   async asyncData({ params, $axios }) {
     const { id } = params
     const { data } = await $axios.get(`/blog/detaile/${id}`)
-    return { blog: data }
+    return { blog: data}
   },
   methods: {
     formDate(blog) {
@@ -78,7 +86,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .blog-item-detail {
   width: 100%;
   height: 100%;
@@ -122,5 +130,9 @@ export default {
       }
     }
   }
+}
+
+.v-note-wrapper{
+  z-index: 1 !important;
 }
 </style>
