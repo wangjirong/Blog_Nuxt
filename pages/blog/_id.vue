@@ -36,7 +36,14 @@
     </no-ssr>
     <Info :info="blog" />
     <Share />
-    <Comment/>
+    <Comment />
+    <div class="comment-group flex-column">
+      <CommentMessage
+        v-for="item in comments"
+        :key="item._id"
+        :comment="item"
+      />
+    </div>
   </div>
 </template>
 
@@ -54,17 +61,90 @@ export default {
   data() {
     return {
       toolbars,
+      comments: [
+        {
+          _id: 1,
+          user: {
+            avatar:
+              'https://thirdqq.qlogo.cn/g?b=oidb&k=A9LeLeujPSgib350g5XKdfw&s=100&t=1556431501',
+            nickName: '302',
+          },
+          date: '2020-07-02',
+          time: '21:23',
+          text: '淦你老母',
+          replys: [
+            {
+              fromUser: {
+                _id: '1232',
+                nickName: '皮卡丘',
+                avatar:
+                  'https://thirdqq.qlogo.cn/g?b=oidb&k=Epbsm37OJYClvFNQHubxKg&s=100&t=1568901205',
+              },
+              toUser: {
+                id: '234',
+                nickName: '302',
+                avatar:
+                  'https://thirdqq.qlogo.cn/g?b=oidb&k=A9LeLeujPSgib350g5XKdfw&s=100&t=1556431501',
+              },
+              date: '2020-12-30',
+              time: '21:40',
+              text: 'what are you nong sha ne !',
+            },
+            {
+              fromUser: {
+                id: '234',
+                nickName: '302',
+                avatar:
+                  'https://thirdqq.qlogo.cn/g?b=oidb&k=A9LeLeujPSgib350g5XKdfw&s=100&t=1556431501',
+              },
+              toUser: {
+                _id: '1232',
+                nickName: '皮卡丘',
+                avatar:
+                  'https://thirdqq.qlogo.cn/g?b=oidb&k=Epbsm37OJYClvFNQHubxKg&s=100&t=1568901205',
+              },
+
+              date: '2020-12-30',
+              time: '21:45',
+              text: '弄你的头!',
+            },
+          ],
+        },
+        {
+          _id: 2,
+          user: {
+            avatar:
+              'https://thirdqq.qlogo.cn/g?b=oidb&k=jFK6bbFWtqkz9vT0Mtg9rA&s=100&t=1557219684',
+            nickName: '302',
+          },
+          date: '2020-07-02',
+          time: '11:13',
+          text: '摩西摩西',
+        },
+        {
+          _id: 3,
+          user: {
+            avatar:
+              'https://thirdqq.qlogo.cn/g?b=oidb&k=ZcZHOjFOqbd6ZNzgRSct5A&s=100&t=1554563093',
+            nickName: '西瓜不红',
+          },
+          date: '2020-07-02',
+          time: '01:33',
+          text: '呵呵哒',
+        },
+      ],
     }
   },
   components: {
     Share: () => import('../../components/blog/detail/Share'),
     Info: () => import('../../components/blog/detail/Info'),
-    Comment:()=>import('../../components/blog/detail/Comment')
+    Comment: () => import('../../components/blog/detail/Comment'),
+    CommentMessage: () => import('../../components/public/Comment/index'),
   },
   async asyncData({ params, $axios }) {
     const { id } = params
     const { data } = await $axios.get(`/blog/detaile/${id}`)
-    return { blog: data}
+    return { blog: data }
   },
   methods: {
     formDate(blog) {
@@ -132,7 +212,13 @@ export default {
   }
 }
 
-.v-note-wrapper{
+.v-note-wrapper {
   z-index: 1 !important;
+}
+
+.comment-group {
+  width: 70vw;
+  padding: 1em 2em;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 </style>
