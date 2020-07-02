@@ -48,14 +48,14 @@ export default {
 <style lang="less">
 .blog-item {
   width: 50vw;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
   background-color: rgba(250, 250, 250, 1);
   margin: 2em 0;
   border-radius: 5px;
   transition: 1s ease-in-out;
   &:hover {
     cursor: pointer;
-    box-shadow: 5px 5px 5px 5px rgba(100, 100, 100, 0.5);
+    box-shadow: 5px 5px 3px 1px rgba(220, 230, 240, .8);
   }
   .cover-title-desc {
     .cover-img {
@@ -87,6 +87,7 @@ export default {
   }
   .date-count-more {
     width: 100%;
+    margin-top: .5em;
     .left {
       .item {
         color: black;

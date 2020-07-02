@@ -2,11 +2,11 @@
   <div id="header" class="flex-vertical-center">
     <div class="logo">
       <nuxt-link to="/">
-      <img src="../../assets/image/logo.jpg" class="logo-image" alt="">
+        <img src="../../static/eric.jpg" class="logo-image" alt="" />
       </nuxt-link>
     </div>
     <ul class="menu-list flex-vertical-center">
-      <li class="menu-item" v-for="item in menuList" :key="item.title">
+      <li class="menu-item center" v-for="item in menuList" :key="item.title">
         <nuxt-link :to="item.href" class="item-link flex-vertical-center">
           <Icon :type="item.icon" />
           <span>{{ item.title }}</span>
@@ -93,11 +93,14 @@ export default {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #393d49;
+  // background-color: rgba(57, 61, 73, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
   .logo {
     flex: 2;
     text-align: center;
-    .logo-image{
+    .logo-image {
       display: block;
       height: 7vh;
       width: auto;
@@ -115,16 +118,21 @@ export default {
   .menu-list {
     flex: 5;
     justify-content: flex-end;
-    padding-right: 8vw;
+    height: 7vh;
+    margin: 0 10vw 0 0;
     .menu-item {
+      height: 7vh;
+      line-height: 7vh;
       .item-link {
         display: block;
-        padding: 1em 1.2em;
+        height: 7vh;
+        padding: 0 1em;
+        line-height: 7vh;
         font-size: 1.1em;
-        color: aliceblue;
+        color: #777;
       }
       .nuxt-link-exact-active {
-        color: aqua;
+        color: lightgreen;
       }
     }
   }

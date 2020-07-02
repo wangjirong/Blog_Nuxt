@@ -28,7 +28,7 @@ export default {}
 
 <style lang="less" scoped>
 .apply-link-desc {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 1em 2em;
   border-radius: 10px;
   width: 100%;

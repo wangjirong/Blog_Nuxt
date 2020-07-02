@@ -18,11 +18,10 @@ export default {
 </script>
 <style lang="less" scoped>
 ._app{
-    background: url("https://iri-blog.oss-cn-beijing.aliyuncs.com/blog-cover/PC/Menu/blog.jpg");
+    background: url("https://iri-blog.oss-cn-beijing.aliyuncs.com/blog-cover/PC/Menu/about.jpg");
     background-attachment: fixed;
     .container{
-      width: 70vw;
-        margin: 7vh auto;
+        margin-top: 7vh;
         min-height: 93vh;
         padding-top: 3em;
     }

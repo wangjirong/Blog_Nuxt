@@ -28,7 +28,7 @@ export default {
 <style lang="less" scoped>
 .link-item {
   display: block;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, .95);
   margin: 1em;
   height: 16vh;
   width: 16vw;
@@ -38,6 +38,8 @@ export default {
   transition: ease-in-out 1s;
   &:hover {
     transform: scale(1.1);
+    background-color: lightskyblue;
+    color: #ffffff;
   }
   .logo-title {
     margin-bottom: 1.5em;

@@ -32,7 +32,7 @@
 import { tagColor } from '../../config/tags'
 import getRandomColor from '../../util/color'
 export default {
-  layout: 'noBar-70',
+  layout: 'category',
   data() {
     return {
       keyword: '',

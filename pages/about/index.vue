@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  layout: 'cover',
+  layout: 'about',
 }
 </script>
 

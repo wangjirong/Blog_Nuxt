@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  layout: 'cover',
+  layout: 'link',
   async asyncData({ $axios }) {
     const { data } = await $axios.get('/link/getAllLinks')
     return { linkList: data }

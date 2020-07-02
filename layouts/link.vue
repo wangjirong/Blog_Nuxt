@@ -1,15 +1,11 @@
 <template>
   <div class="_app background">
-    <EHeader />
-
+    <EHeader class="e-header" />
     <nuxt class="container" />
-
     <EFooter />
-
     <BackTop :bottom="60" :height="100"></BackTop>
   </div>
 </template>
-
 <script>
 import EHeader from '../components/public/header'
 import EFooter from '../components/public/footer'
@@ -20,22 +16,15 @@ export default {
   },
 }
 </script>
-
 <style lang="less" scoped>
 ._app {
-  // background: url("https://erics-bucket.oss-cn-beijing.aliyuncs.com/Background-Image/PC/Index_Home/homePage_big_bg_img3.jpg") fixed;
-  background-color: #ffffff;
-  min-height: 100vh;
-
+  background-image: url('https://iri-blog.oss-cn-beijing.aliyuncs.com/blog-cover/PC/Menu/005100-1592412660d6f4.jpg');
+  background-attachment: fixed;
   .container {
     width: 70vw;
-    margin: 7vh 15vw 1vh;
-    padding: 3vh 1vw;
-    min-height: 100vh;
-    background-color: #eeeeee;
-    box-shadow: 5px 5px 5px 15px rgba(100, 100, 100, 0.5);
-    display: flex;
-    justify-content: space-between;
+    margin: 7vh auto 1vh;
+    min-height: 93vh;
+    padding-top: 3em;
   }
 }
 </style>

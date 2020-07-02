@@ -50,7 +50,7 @@ import {
 import toolbars from '../../config/mavon-editor'
 
 export default {
-  layout: 'noRightBar',
+  layout: 'cover',
   data() {
     return {
       toolbars,

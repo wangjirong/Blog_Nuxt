@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  layout:"cover",
+  layout:"message",
   components:{
     Board:()=>import('../../components/message/LeaveMessageBoard')
   }

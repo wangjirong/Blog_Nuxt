@@ -33,7 +33,7 @@ export default {
       href: '~/assets/image/favicon.ico'
     }],
     script: [{
-      src: "http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
+      // src: "http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
     }]
   },
   env: {
@@ -56,6 +56,7 @@ export default {
    */
   plugins: [
     '@/plugins/iview',
+    '@/plugins/antDesignVue',
     '@/plugins/mavonEditor'
   ],
   /*
