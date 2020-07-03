@@ -56,6 +56,8 @@ import {
 
 import toolbars from '../../config/mavon-editor'
 
+import CommentMessage from '../../components/public/Comment/CommentMessage'
+
 export default {
   layout: 'cover',
   data() {
@@ -139,7 +141,7 @@ export default {
     Share: () => import('../../components/blog/detail/Share'),
     Info: () => import('../../components/blog/detail/Info'),
     Comment: () => import('../../components/blog/detail/Comment'),
-    CommentMessage: () => import('../../components/public/Comment/index'),
+    CommentMessage,
   },
   async asyncData({ params, $axios }) {
     const { id } = params

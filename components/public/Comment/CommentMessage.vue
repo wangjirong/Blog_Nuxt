@@ -28,6 +28,7 @@
 
 <script>
 export default {
+  name: 'CommentMessage',
   props: {
     comment,
   },
@@ -45,7 +46,7 @@ p {
   width: 100%;
   ._comment {
     border-bottom: 1px dotted #dddddd;
-    padding: .2em;
+    padding: 0.2em;
     .avatar-name-text {
       > .avatar {
         display: block;
@@ -67,19 +68,18 @@ p {
       margin: 0.5em 0 0 55px;
       > .date-time {
         .date {
-           font-size: .9em;
+          font-size: 0.9em;
         }
-        .time{
-             font-size: .9em;
-             margin: 0 1em 0 .5em;
+        .time {
+          font-size: 0.9em;
+          margin: 0 1em 0 0.5em;
         }
       }
       > .reply {
-          color: mediumseagreen;
-          font-size: .9em;
+        color: mediumseagreen;
+        font-size: 0.9em;
         &:hover {
           text-decoration: underline;
-          
         }
       }
     }

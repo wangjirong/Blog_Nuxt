@@ -50,10 +50,23 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [
-    '@/plugins/iview',
-    '@/plugins/antDesignVue',
-    '@/plugins/mavonEditor'
+  plugins: [{
+      src: '@/plugins/iview',
+      ssr: false
+    },
+    {
+      src: '@/plugins/antDesignVue',
+      ssr: false
+    },
+    {
+      src: '@/plugins/mavonEditor',
+      ssr: false
+    },
+    {
+      src: '@/plugins/store',
+      ssr: false
+    }
+
   ],
   /*
    ** Nuxt.js dev-modules
@@ -77,6 +90,7 @@ export default {
    */
   axios: {
     baseURL: "http://localhost:9000"
+    // baseURL: "http://118.31.173.212:9000"
   },
   /*
    ** Content module configuration

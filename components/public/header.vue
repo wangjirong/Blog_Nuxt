@@ -20,10 +20,19 @@
         alt=""
         width="25"
         height="25"
-        v-if="true"
+        v-if="JSON.stringify(user) === '{}'"
         @click="qqLogin"
       />
-      <img v-if="false" src="" alt="" class="avatar" width="30" height="30" />
+      <img
+        class="user avatar"
+        v-if="!(JSON.stringify(user) === '{}')"
+        :src="user.avatar"
+        :alt="user.nickName"
+        :title="user.nickName"
+        width="30"
+        height="30"
+        @click="outQQLogin"
+      />
     </div>
   </div>
 </template>
@@ -32,6 +41,7 @@ import { qq } from '../../config/login'
 export default {
   data() {
     return {
+      user: this.$store.getters.getUser,
       menuList: [
         {
           title: '归档',
@@ -79,9 +89,10 @@ export default {
       })
     },
     outQQLogin() {
-      QC.Login.signOut()
+      QC.Login.signOut();
+      this.$store.dispatch('SetUser',{})
     },
-  },
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -136,7 +147,8 @@ export default {
       }
     }
   }
-  .login-btn {
+  .login-btn,
+  .user {
     flex: 1;
     margin-right: 100px;
     overflow: hidden;
