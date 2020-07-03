@@ -10,6 +10,7 @@
 import EHeader from '../components/public/header'
 import EFooter from '../components/public/footer'
 export default {
+  // transition:'category',
   components: {
     EHeader,
     EFooter,

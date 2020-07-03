@@ -20,7 +20,7 @@
         <div class="year-month">{{ blog.monthYear }}</div>
       </div>
     </div>
-    <no-ssr>
+    <client-only>
       <mavon-editor
         v-model="blog.context"
         :editable="false"
@@ -33,17 +33,17 @@
         :boxShadow="false"
         previewBackground="#fff"
       />
-    </no-ssr>
-    <Info :info="blog" />
-    <Share />
-    <Comment />
-    <div class="comment-group flex-column">
-      <CommentMessage
-        v-for="item in comments"
-        :key="item._id"
-        :comment="item"
-      />
-    </div>
+      <Info :info="blog" />
+      <Share />
+      <Comment />
+      <div class="comment-group flex-column">
+        <CommentMessage
+          v-for="item in comments"
+          :key="item._id"
+          :comment="item"
+        />
+      </div>
+    </client-only>
   </div>
 </template>
 

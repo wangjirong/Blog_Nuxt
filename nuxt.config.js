@@ -29,11 +29,19 @@ export default {
       href: '~/assets/image/favicon.ico'
     }],
     script: [{
-      src: "http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
-    }]
+        src: "http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
+      },
+      {
+        src: "http://api.map.baidu.com/api?v=3.0&ak=ZHavbHCLCfVtcpWAh3Pby0seTOGPurWS"
+      }
+    ]
   },
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:5000'
+  },
+
+  loding:{
+    color:"#00c58e"
   },
   /*
    ** Global CSS
@@ -43,6 +51,9 @@ export default {
     {
       src: '~assets/css/common.css',
       ssr: false
+    },
+    {
+      src:'~assets/css/page-transition.css'
     }
 
   ],
@@ -65,7 +76,11 @@ export default {
     {
       src: '@/plugins/store',
       ssr: false
-    }
+    },
+    // {
+    //   src: '@/plugins/BMap',
+    //   ssr: false
+    // }
 
   ],
   /*
@@ -89,8 +104,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: "http://localhost:9000"
-    // baseURL: "http://118.31.173.212:9000"
+    // baseURL: "http://localhost:9000"
+    baseURL: "http://api.cirev.cn/"
   },
   /*
    ** Content module configuration

@@ -17,6 +17,7 @@ export default {
   data() {
     return {
       text: '',
+      location: '',
       user: this.$store.getters.getUser,
     }
   },
@@ -29,12 +30,22 @@ export default {
           const { status } = await this.$axios.post('/message/leaveMessage', {
             user: this.user,
             browser: browser(),
+            location: this.location,
             text: this.text,
           })
           if (status === 200) this.$Message.success('留言成功')
         } else this.$Message.error('留言失败')
       }
     },
+    getLocation() {
+      var myCity = new BMap.LocalCity()
+      myCity.get((result) => {
+        this.location = result.name
+      })
+    },
+  },
+  async created() {
+    await this.getLocation()
   },
 }
 </script>

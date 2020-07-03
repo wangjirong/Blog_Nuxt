@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     transition: ease-in-out 500ms;
@@ -32,7 +32,6 @@ ol, ul {
     list-style: none
 }
 
-
 a {
     text-decoration: none;
 }
@@ -52,8 +51,6 @@ img:hover {
 input[type="submit"]:hover {
     cursor: pointer;
 }
-
-
 
 sup {
     vertical-align: text-top
@@ -94,7 +91,6 @@ button:active {
     filter: brightness(150%);
 }
 
-
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset;
     border: 1px solid #CCC !important;
@@ -114,47 +110,60 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     position: fixed;
 }
 
-.flex{
+.flex {
     display: flex;
 }
-.flex-vertical,.center {
+
+.flex-vertical, .center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.flex-vertical-center{
+
+.flex-vertical-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.flex-vertical-space{
+
+.flex-vertical-space {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.flex-vertical-start{
+
+.flex-vertical-start {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-}.flex-vertical-top{
+}
+
+.flex-vertical-top {
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
+.flex-vertical-start-top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 
-.flex-column{
+.flex-column {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .flex-column-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.flex-column-space{
+
+.flex-column-space {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -166,7 +175,8 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     flex-direction: column;
     align-items: flex-start;
 }
-.flex-column-top{
+
+.flex-column-top {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

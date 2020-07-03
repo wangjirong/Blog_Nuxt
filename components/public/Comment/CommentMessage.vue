@@ -16,13 +16,6 @@
         <button class="reply">回复</button>
       </div>
     </div>
-    <!-- <div class="reply-group">
-      <Reply
-        v-for="reply in commentList.replys"
-        :key="reply._id"
-        :reply="reply"
-      />
-    </div> -->
   </div>
 </template>
 
