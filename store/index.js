@@ -6,6 +6,7 @@ const store = () => new Vuex.Store({
     user: {
       _id:"1212",
       nickName:"艾瑞",
+      openID:'123123123',
       avatar:"http://qzapp.qlogo.cn/qzapp/101862127/1F75CE8E2AF350BE33F265A379BF1B4C/50"
     }
   },

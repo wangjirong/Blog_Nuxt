@@ -12,10 +12,12 @@
 </template>
 
 <script>
+import browser from '../../util/browser'
 export default {
   data() {
     return {
       text: '',
+      user: this.$store.getters.getUser,
     }
   },
   methods: {
@@ -23,17 +25,14 @@ export default {
       if (!this.text) this.$Message.error('留言内容不能为空！')
       // else if (!QC.Login.check()) this.$Message.error('请先登录！')
       else {
-        const message = JSON.stringify({
-          user: this.$store.getters.getUser,
-          text: this.text,
-        })
-        const { status } = await this.$axios.post(
-          '/message/leaveMessage',
-          message
-        )
-        if (status === 200) this.$Message.success('留言成功');
-        else this.$Message.error("留言失败")
-        
+        if (!(JSON.stringify(this.user) === '{}')) {
+          const { status } = await this.$axios.post('/message/leaveMessage', {
+            user: this.user,
+            browser: browser(),
+            text: this.text,
+          })
+          if (status === 200) this.$Message.success('留言成功')
+        } else this.$Message.error('留言失败')
       }
     },
   },
