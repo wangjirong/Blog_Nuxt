@@ -26,8 +26,8 @@ export default {
     width: 60vw;
     margin: 7vh auto;
     min-height: 93vh;
-    padding:  auto;
     padding-top: 4em;
+    text-align: center;
     background-color: rgba(255, 255, 255, 1);
   }
 }

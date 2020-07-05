@@ -4,7 +4,20 @@
       <h3 class="title">留言板</h3>
       <h5 class="desc">就让我们一直走下去，直到世界一片纯白。</h5>
     </div>
-    <Input type="textarea" :rows="7" v-model="text" />
+    <client-only>
+      <mavon-editor
+        v-model="text"
+        :toolbarsFlag="false"
+        defaultOpen="edit"
+        placeholder="留下一点东西吧"
+        :ishljs="true"
+        :subfield="false"
+        codeStyle="tomorrow-night"
+        :scrollStyle="false"
+        :boxShadow="true"
+        previewBackground="#fff"
+      />
+    </client-only>
     <button class="btn" @click="submit">
       提交留言
     </button>
@@ -24,17 +37,17 @@ export default {
   methods: {
     async submit() {
       if (!this.text) this.$Message.error('留言内容不能为空！')
-      // else if (!QC.Login.check()) this.$Message.error('请先登录！')
+      else if (JSON.stringify(this.user) === '{}')
+        this.$Message.error('请先登录！')
       else {
-        if (!(JSON.stringify(this.user) === '{}')) {
-          const { status } = await this.$axios.post('/message/leaveMessage', {
-            user: this.user,
-            browser: browser(),
-            location: this.location,
-            text: this.text,
-          })
-          if (status === 200) this.$Message.success('留言成功')
-        } else this.$Message.error('留言失败')
+        const { status } = await this.$axios.post('/message/leaveMessage', {
+          user: this.user,
+          browser: browser(),
+          location: this.location,
+          text: this.text,
+        })
+        if (status === 200) this.$Message.success('留言成功')
+        else this.$Message.error('留言失败')
       }
     },
     getLocation() {
@@ -50,26 +63,28 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .board {
   width: 70vw;
+  height: 50vh;
   background-color: rgba(255, 255, 255, 0.85);
-  padding: 2em;
+  padding: 1em 2em;
   border-radius: 10px;
   .title-des {
     .title {
       font-size: 1.6em;
+      margin: 0;
       font-family: 'Times New Roman', Times, serif;
     }
     .desc {
       font-size: 1.2em;
       font-family: 'Times New Roman', Times, serif;
-      margin: 1em 0;
+      margin: 0.5em 0;
     }
   }
   .btn {
-    padding: 0.5em 1em;
-    font-size: 1.3em;
+    padding: 0.3em 0.7em;
+    font-size: 1.2em;
     color: #ffffff;
     background-color: red;
     border-radius: 5px;
@@ -78,5 +93,8 @@ export default {
       background-color: yellowgreen;
     }
   }
+}
+.v-note-wrapper {
+  min-height: 200px !important;
 }
 </style>

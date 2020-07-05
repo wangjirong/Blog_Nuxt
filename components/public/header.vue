@@ -83,6 +83,8 @@ export default {
   },
   methods: {
     qqLogin() {
+      const path = this.$route.fullPath
+      sessionStorage.setItem("history",path)
       QC.Login.showPopup({
         appId: qq.appid,
         redirectURI: qq.redirectURI,

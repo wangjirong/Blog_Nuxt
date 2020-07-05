@@ -5,28 +5,34 @@
         <img :src="comment.user.avatar" alt="" class="avatar" />
         <div class="name-text">
           <p class="nickName">{{ comment.user.nickName }}</p>
-          <p class="text">{{ comment.text }}</p>
+          <p class="text" v-html="comment.text"></p>
         </div>
       </div>
       <div class="time-reply-btn flex-vertical-start">
-        <div class="date-time flex-vertical-start">
-          <span class="date">{{ comment.date }}</span>
+        <div class="time-reply flex-vertical-start">
           <span class="time">{{ comment.time }}</span>
+          <button class="reply">回复</button>
         </div>
-        <button class="reply">回复</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { formDataComments } from '../../../util/comment'
 export default {
   name: 'CommentMessage',
   props: {
-    comment,
+    comment: {
+      type: Object,
+      required: true,
+    },
   },
   components: {
-    Reply: () => import('./reply'),
+    // Reply: () => import('./reply'),
+  },
+  created() {
+    formDataComments(this.comment)
   },
 }
 </script>
@@ -50,29 +56,28 @@ p {
         margin-left: 1em;
         .nickName {
           color: #01aaed;
-          font-size: 1.2em;
+          font-size: 1em;
         }
         .text {
-          font-size: 1em;
+          font-size: .9em;
+          word-wrap: break-word;
+          white-space: pre-line;
         }
       }
     }
     > .time-reply-btn {
-      margin: 0.5em 0 0 55px;
-      > .date-time {
-        .date {
-          font-size: 0.9em;
-        }
+      margin-left: 55px;
+      > .time-reply {
         .time {
           font-size: 0.9em;
-          margin: 0 1em 0 0.5em;
+          margin-right: 1em;
         }
-      }
-      > .reply {
-        color: mediumseagreen;
-        font-size: 0.9em;
-        &:hover {
-          text-decoration: underline;
+        > .reply {
+          color: mediumseagreen;
+          font-size: 0.9em;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

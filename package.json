@@ -16,6 +16,7 @@
     "ant-design-vue": "^1.6.2",
     "axios": "^0.19.2",
     "iview": "^3.5.4",
+    "marked": "^1.1.0",
     "mavon-editor": "^2.9.0",
     "nuxt": "^2.13.0",
     "vue-baidu-map": "^0.21.22",

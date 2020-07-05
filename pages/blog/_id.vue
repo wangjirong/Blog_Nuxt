@@ -28,115 +28,33 @@
         defaultOpen="preview"
         :ishljs="true"
         :subfield="false"
+        :navigation="true"
         codeStyle="tomorrow-night"
         :scrollStyle="false"
         :boxShadow="false"
         previewBackground="#fff"
       />
-      <Info :info="blog" />
-      <Share />
-      <Comment />
-      <div class="comment-group flex-column">
-        <CommentMessage
-          v-for="item in comments"
-          :key="item._id"
-          :comment="item"
-        />
-      </div>
     </client-only>
+    <Info :info="blog" />
+    <Share />
+    <Comment />
+
+    <div class="comment-group flex-column">
+      <CommentMessage
+        v-for="comment in blog.comment"
+        :key="comment._id"
+        :comment="comment"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import {
-  getJustDay,
-  getYearAndMonth,
-  getJustTime,
-} from '../../util/time.filter'
-
-import toolbars from '../../config/mavon-editor'
+import { formDataBlog } from '../../util/blog'
 
 import CommentMessage from '../../components/public/Comment/CommentMessage'
-
 export default {
   layout: 'cover',
-  data() {
-    return {
-      toolbars,
-      comments: [
-        {
-          _id: 1,
-          user: {
-            avatar:
-              'https://thirdqq.qlogo.cn/g?b=oidb&k=A9LeLeujPSgib350g5XKdfw&s=100&t=1556431501',
-            nickName: '302',
-          },
-          date: '2020-07-02',
-          time: '21:23',
-          text: '淦你老母',
-          replys: [
-            {
-              fromUser: {
-                _id: '1232',
-                nickName: '皮卡丘',
-                avatar:
-                  'https://thirdqq.qlogo.cn/g?b=oidb&k=Epbsm37OJYClvFNQHubxKg&s=100&t=1568901205',
-              },
-              toUser: {
-                id: '234',
-                nickName: '302',
-                avatar:
-                  'https://thirdqq.qlogo.cn/g?b=oidb&k=A9LeLeujPSgib350g5XKdfw&s=100&t=1556431501',
-              },
-              date: '2020-12-30',
-              time: '21:40',
-              text: 'what are you nong sha ne !',
-            },
-            {
-              fromUser: {
-                id: '234',
-                nickName: '302',
-                avatar:
-                  'https://thirdqq.qlogo.cn/g?b=oidb&k=A9LeLeujPSgib350g5XKdfw&s=100&t=1556431501',
-              },
-              toUser: {
-                _id: '1232',
-                nickName: '皮卡丘',
-                avatar:
-                  'https://thirdqq.qlogo.cn/g?b=oidb&k=Epbsm37OJYClvFNQHubxKg&s=100&t=1568901205',
-              },
-
-              date: '2020-12-30',
-              time: '21:45',
-              text: '弄你的头!',
-            },
-          ],
-        },
-        {
-          _id: 2,
-          user: {
-            avatar:
-              'https://thirdqq.qlogo.cn/g?b=oidb&k=jFK6bbFWtqkz9vT0Mtg9rA&s=100&t=1557219684',
-            nickName: '302',
-          },
-          date: '2020-07-02',
-          time: '11:13',
-          text: '摩西摩西',
-        },
-        {
-          _id: 3,
-          user: {
-            avatar:
-              'https://thirdqq.qlogo.cn/g?b=oidb&k=ZcZHOjFOqbd6ZNzgRSct5A&s=100&t=1554563093',
-            nickName: '西瓜不红',
-          },
-          date: '2020-07-02',
-          time: '01:33',
-          text: '呵呵哒',
-        },
-      ],
-    }
-  },
   components: {
     Share: () => import('../../components/blog/detail/Share'),
     Info: () => import('../../components/blog/detail/Info'),
@@ -146,21 +64,13 @@ export default {
   async asyncData({ params, $axios }) {
     const { id } = params
     const { data } = await $axios.get(`/blog/detaile/${id}`)
-    return { blog: data }
+
+    if (data) return { blog: formDataBlog(data) }
   },
   methods: {
-    formDate(blog) {
-      blog.day = getJustDay(blog.date)
-      blog.monthYear = getYearAndMonth(blog.date)
-      blog.tag = blog.tags.join('、')
-      blog.time = getJustTime(blog.date)
-    },
     async addReadCount() {
       await this.$axios.get(`/blog/addReadCount?_id=${this.$route.params.id}`)
     },
-  },
-  created() {
-    this.formDate(this.blog)
   },
   mounted() {
     this.addReadCount()

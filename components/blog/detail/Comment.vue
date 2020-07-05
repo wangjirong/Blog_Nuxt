@@ -1,13 +1,20 @@
 <template>
   <div class="comment flex-column-start">
     <h3 class="title">发表评论</h3>
-    <Input
-      class="text"
-      v-model="text"
-      type="textarea"
-      placeholder="说点什么吧……"
-      :rows="4"
-    />
+    <client-only>
+      <mavon-editor
+        v-model="text"
+        :toolbarsFlag="false"
+        defaultOpen="edit"
+        placeholder="评论……"
+        :ishljs="true"
+        :subfield="false"
+        codeStyle="tomorrow-night"
+        :scrollStyle="false"
+        :boxShadow="true"
+        previewBackground="#fff"
+      />
+    </client-only>
     <button id="submit" @click="submit">提交</button>
   </div>
 </template>
@@ -17,14 +24,22 @@ export default {
   data() {
     return {
       text: '',
+      user: this.$store.getters.getUser,
     }
   },
   methods: {
     async submit() {
       if (!this.text) this.$Message.error('评论不能为空')
-      else if (true) this.$Message.warning('请先登录！')
+      else if (JSON.stringify(this.user) === '{}')
+        this.$Message.error('请先登录！')
       else {
-        const { status } = await this.$axios.post(`/blog/comment/`)
+        const { status } = await this.$axios.post(`/blog/comment`, {
+          text: this.text,
+          _id: this.$route.params.id,
+          user: this.user,
+        })
+        if (status === 200) this.$Message.success('评论成功！')
+        else this.$Message.error('评论失败')
       }
     },
   },
@@ -32,6 +47,9 @@ export default {
 </script>
 
 <style lang="less">
+.v-note-wrapper {
+  min-height: 100px !important;
+}
 .comment {
   padding: 1em 2em;
   margin: 1em 0;
@@ -45,7 +63,8 @@ export default {
     margin: 0.5em 0;
   }
   > button {
-    padding: 0.35em 1.2em;
+    padding: 0.3em 1em;
+    margin-top: .5em;
     background-color: #8b0000;
     color: #fff;
     border-radius: 5px;
@@ -55,7 +74,7 @@ export default {
     }
   }
 }
-textarea.ivu-input{
-    text-indent: 2em;
+textarea.ivu-input {
+  text-indent: 2em;
 }
 </style>

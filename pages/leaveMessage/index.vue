@@ -2,7 +2,6 @@
   <div class="leaveMessage flex-column-top">
     <no-ssr>
       <Board />
-
       <div class="message-group">
         <Message v-for="item in messageList" :key="item._id" :message="item" />
       </div>

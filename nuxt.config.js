@@ -20,7 +20,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content:"艾瑞前端，艾瑞的个人博客，十年生死两茫茫！"
       }
     ],
     link: [{
@@ -40,8 +40,8 @@ export default {
     baseUrl: process.env.BASE_URL || 'http://localhost:5000'
   },
 
-  loding:{
-    color:"#00c58e"
+  loding: {
+    color: "#00c58e"
   },
   /*
    ** Global CSS
@@ -53,7 +53,7 @@ export default {
       ssr: false
     },
     {
-      src:'~assets/css/page-transition.css'
+      src: '~assets/css/page-transition.css'
     }
 
   ],
@@ -77,11 +77,6 @@ export default {
       src: '@/plugins/store',
       ssr: false
     },
-    // {
-    //   src: '@/plugins/BMap',
-    //   ssr: false
-    // }
-
   ],
   /*
    ** Nuxt.js dev-modules

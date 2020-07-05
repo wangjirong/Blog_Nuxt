@@ -13,7 +13,7 @@
           <span class="nickName">{{ message.user.nickName }}</span>
           <span class="browser">{{ message.browser }}</span>
         </div>
-        <div class="tex">{{ message.text }}</div>
+        <div class="tex" v-html="message.text"></div>
         <div class="location-time flex-vertical-start">
           <div class="location center">
             <Icon type="ios-send" />
@@ -46,14 +46,14 @@ export default {
   ._message {
     .avatar {
       display: block;
-      height: 45px;
-      width: 45px;
+      height: 40px;
+      width: 40px;
       margin-right: 1em;
     }
     .nickname-browser-text-date-time {
       .nickname-browser {
         .nickName {
-          font-size: 1.1em;
+          font-size: 1em;
           color: #01aaed;
           margin-right: 1em;
         }
@@ -65,6 +65,8 @@ export default {
         margin: 0.3em;
         overflow: hidden;
         word-wrap: break-word;
+        white-space: pre-line;
+        font-size: .9em;
       }
       .location-time {
         .location {
