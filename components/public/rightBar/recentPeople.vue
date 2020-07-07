@@ -5,13 +5,19 @@
       <h3 class="stat">最近登录</h3>
     </div>
     <div class="people-container">
- <Icon type="md-qq" />
+      <Icon type="md-qq" />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    users: {
+      type: Array
+    },
+  },
+}
 </script>
 
 <style lang="less" scoped>
@@ -30,8 +36,8 @@ export default {};
       font-family: 'Times New Roman', Times, serif;
     }
   }
-  .people-container{
-    background-color: rgba(255, 255, 255, .7);
+  .people-container {
+    background-color: rgba(255, 255, 255, 0.7);
     width: 100%;
     height: 50px;
   }

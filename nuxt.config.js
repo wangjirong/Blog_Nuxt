@@ -18,9 +18,34 @@ export default {
         content: 'width=device-width, initial-scale=1'
       },
       {
+        hid: "apple-mobile-web-app-title",
+        name: 'apple-mobile-web-app-title',
+        content: "艾瑞前端，艾瑞的个人博客，十年生死两茫茫！"
+      },
+      {
+        hid: "author",
+        name: 'author',
+        content: '艾瑞,cirev.cn,blog.cirev.cn,408718358@qq.com',
+      },
+      {
+        hid: 'og:type',
+        name: 'og:type',
+        content: "blog,article"
+      },
+      {
+        hid: "og:site_name",
+        name: 'og:site_name',
+        content: "cirev.cn,blog.cirev.cn,m.cirev.cn"
+      },
+      {
         hid: 'description',
         name: 'description',
-        content:"艾瑞前端，艾瑞的个人博客，十年生死两茫茫！"
+        content: "艾瑞前端，艾瑞的个人博客，十年生死两茫茫！"
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content: "艾瑞前端，艾瑞的个人博客，十年生死两茫茫！"
       }
     ],
     link: [{
@@ -99,8 +124,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    // baseURL: "http://localhost:9000"
-    baseURL: "http://api.cirev.cn/"
+    baseURL: "http://localhost:9000"
+    // baseURL: "http://api.cirev.cn/"
   },
   /*
    ** Content module configuration

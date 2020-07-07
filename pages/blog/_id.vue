@@ -75,6 +75,34 @@ export default {
   mounted() {
     this.addReadCount()
   },
+  head() {
+    return {
+      title: '艾瑞·' + this.blog.title,
+      meta: [
+        {
+          hid: 'og:type',
+          content: 'article，blog',
+        },
+        {
+          hid: 'og:title',
+          content: '艾瑞·' + this.blog.title,
+        },
+        {
+          hid:"og:description",name:"og:description",content:this.blog.desc,
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: `${this.blog.title}`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.blog.desc,
+        },
+      ],
+    }
+  },
 }
 </script>
 

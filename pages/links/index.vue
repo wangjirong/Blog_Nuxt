@@ -18,8 +18,17 @@ export default {
     ApplyDesc: () => import('../../components/Links/ApplyDesc'),
     LinkItem: () => import('../../components/Links/LinkItem'),
   },
-  created() {
-    console.log(this.linkList)
+  head() {
+    return {
+      title: '艾瑞·友链',
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: '艾瑞·友链',
+        },
+      ],
+    }
   },
 }
 </script>
@@ -28,7 +37,7 @@ export default {
   padding: 1em 2em;
   width: 70vw;
   margin: 0 auto;
-  .link-group{
+  .link-group {
     margin: 1em 0;
     width: 100%;
   }

@@ -7,7 +7,6 @@
         <p class="text">{{ item.text }}</p>
         <img :src="item.img.src" width="200" :alt="item.text" />
       </a-timeline-item>
-
     </a-timeline>
   </div>
 </template>
@@ -18,6 +17,28 @@ export default {
   async asyncData({ $axios }) {
     const { data } = await $axios.get('/diary/getAllDiary')
     return { diaryList: formData(data) }
+  },
+  head() {
+    return {
+      title: '日记·记录学习、记录生活',
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: '日记·记录学习、记录生活',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: '艾瑞·前端的学习日志',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: '艾瑞·前端的学习日志',
+        },
+      ],
+    }
   },
 }
 </script>

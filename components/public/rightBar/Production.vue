@@ -6,60 +6,17 @@
         src="https://erics-bucket.oss-cn-beijing.aliyuncs.com/reWriteBlogSource/image/home/p-resume-bg.jpg"
         alt
       />
-      <img src="https://cdn.huidoo.com.cn/m/linfeng.png" alt class="avatar" />
+      <img src="https://iri-blog.oss-cn-beijing.aliyuncs.com/client-image/home/zhangguorong.JPG" alt class="avatar" />
       <h3 class="_name">艾瑞</h3>
-      <p class="desc">十年生死两茫茫，不思量，自难忘。千里孤坟，无处话凄凉。纵使相逢应不识，尘满面，鬓如霜。</p>
-    </div>
-    <div class="count flex-column-center">
-      <h3 class="title">社交账号</h3>
-      <div class="count-group flex-vertical-center">
-        <Poptip trigger="hover" content="QQ:408718358" padding="0">
-          <img
-            src="https://erics-bucket.oss-cn-beijing.aliyuncs.com/reWriteBlogSource/image/iconfont/qq.png"
-            width="30"
-            height="30"
-            alt
-          />
-        </Poptip>
-        <Poptip trigger="hover" padding="0">
-          <img
-            src="https://erics-bucket.oss-cn-beijing.aliyuncs.com/reWriteBlogSource/image/iconfont/weixin.png"
-            width="30"
-            height="30"
-            alt
-          />
-          <img
-            src="https://erics-bucket.oss-cn-beijing.aliyuncs.com/reWriteBlogSource/image/iriInfo/weixin.JPG"
-            slot="content"
-            alt
-            class="info-image"
-          />
-        </Poptip>
-        <Poptip trigger="hover" padding="0" content="github">
-          <img
-            src="https://erics-bucket.oss-cn-beijing.aliyuncs.com/reWriteBlogSource/image/iconfont/github.png"
-            width="30"
-            height="30"
-            alt
-          />
-        </Poptip>
-        <Poptip trigger="hover" padding="0" content="QQ群聊">
-          <img
-            src="https://erics-bucket.oss-cn-beijing.aliyuncs.com/reWriteBlogSource/image/iconfont/groupChat.png"
-            width="30"
-            height="30"
-            alt
-          />
-        </Poptip>
-      </div>
+      <p class="desc">
+        十年生死两茫茫，不思量，自难忘。千里孤坟，无处话凄凉。纵使相逢应不识，尘满面，鬓如霜。
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 <style lang="less" scoped>
 .production {
@@ -99,21 +56,20 @@ export default {
       padding: 1px 5px 5px;
     }
   }
-  .count{
+  .count {
+    width: 100%;
+    .title {
+      font-size: 14px;
+      padding: 5px;
+      text-align: center;
+    }
+    .count-group {
       width: 100%;
-      .title{
-          font-size: 14px;
-          padding: 5px;
-          text-align: center;
+      padding: 2px 20px;
+      > * {
+        flex: 1;
       }
-      .count-group{
-          width: 100%;
-          padding: 2px 20px;
-          >*{
-              flex: 1;
-          }
-      }
-
+    }
   }
 }
 

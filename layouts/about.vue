@@ -18,7 +18,7 @@ export default {
 </script>
 <style lang="less" scoped>
 ._app {
-  background: url('https://iri-blog.oss-cn-beijing.aliyuncs.com/blog-cover/PC/Menu/about.jpg');
+  background: url('https://iri-blog.oss-cn-beijing.aliyuncs.com/client-image/home/yuner.JPG');
   background-attachment: fixed;
   .container {
     width: 70vw;

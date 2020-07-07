@@ -66,8 +66,27 @@ export default {
       return data
     },
   },
-  created() {
-    console.log(this.blogList)
+  head() {
+    return {
+      title: '艾瑞·归档/分类',
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: '艾瑞·前端·归档/分类',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: '艾瑞的个人博客-分类',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: '艾瑞的个人博客-分类',
+        },
+      ],
+    }
   },
 }
 </script>

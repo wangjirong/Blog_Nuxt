@@ -21,6 +21,18 @@ export default {
     Board: () => import('../../components/message/LeaveMessageBoard'),
     Message: () => import('../../components/message/Message'),
   },
+  head() {
+    return {
+      title: '艾瑞·留言',
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: '艾瑞·给我留言',
+        }
+      ],
+    }
+  },
 }
 </script>
 

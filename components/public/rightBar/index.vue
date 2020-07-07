@@ -1,8 +1,8 @@
 <template>
-  <div id="right" :class="toTop?'topFixed':''">
-    <Production/>
-    <Statistics :statistics="statistics" />
-    <RecentPeople />
+  <div id="right" :class="toTop ? 'topFixed' : ''">
+    <Production />
+    <Statistics :info="info" />
+    <RecentPeople :users="users" />
   </div>
 </template>
 
@@ -14,55 +14,39 @@ export default {
   components: {
     Statistics,
     RecentPeople,
-    Production
+    Production,
   },
   data() {
     return {
-      toTop:false,
-      statistics: {
-        runtime: 12,
-        blogCount: 23,
-        vistorCount: 123,
-      },
+      toTop: false,
+      users: [],
+      info: {},
     }
   },
-  methods: {
-    handleScroll() {
-      const scrollTop =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop
-      const offsetTop = document.querySelector('#right').offsetTop
-      const headHeight = document.body.clientHeight*7/100
-      
-      if (scrollTop > (offsetTop)) {
-        this.toTop = true
-      } else {
-        this.toTop = false
-      }
-    },
-  },
-  mounted() {
-    // window.addEventListener('scroll', this.handleScroll)
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.handleScroll)
+  async fetch() {
+    const { data } = await this.$axios.get('/site/statics')
+    this.users = data.user
+    this.info = {
+      blogCount: data.blogCount,
+      messageCount: data.messageCount,
+      userCount: data.user.userCount,
+    }
   },
 }
 </script>
 
 <style lang="less" scoped>
 #right {
-    width: 19vw;
-    padding: 0 1vw;
-    position: fixed;
-    top: 10vh;
-    right: 14vw;
+  width: 19vw;
+  padding: 0 1vw;
+  position: fixed;
+  top: 10vh;
+  right: 14vw;
   > * {
     margin-bottom: 3vh;
   }
 }
-.topFixed{
+.topFixed {
   position: fixed;
   top: 12vh;
   right: 12vw;
