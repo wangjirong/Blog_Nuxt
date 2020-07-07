@@ -41,7 +41,7 @@ import { qq } from '../../config/login'
 export default {
   data() {
     return {
-      user: this.$store.getters.getUser,
+      user: this.$store.getters.getUser || localStorage.getItem('user'),
       menuList: [
         {
           title: '归档',

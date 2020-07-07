@@ -24,7 +24,6 @@ EHeader,EFooter,Right
 </script>
 <style lang="less" scoped>
 ._app{
-  // background: url("https://erics-bucket.oss-cn-beijing.aliyuncs.com/Background-Image/PC/Index_Home/homePage_big_bg_img3.jpg") fixed;
   background-color: #ffffff;
   min-height: 100vh;
   
@@ -40,3 +39,5 @@ EHeader,EFooter,Right
   }
 }
 </style>
+
+
