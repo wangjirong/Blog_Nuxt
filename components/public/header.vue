@@ -18,14 +18,15 @@
         class="login-btn"
         src="../../assets/iconfont/QQ.png"
         alt=""
-        width="25"
-        height="25"
-        v-if="JSON.stringify(user) === '{}'"
+        title="点击登录"
+        width="30"
+        height="30"
+        v-if="isLogin"
         @click="qqLogin"
       />
       <img
         class="user avatar"
-        v-if="!(JSON.stringify(user) === '{}')"
+        v-if="!isLogin"
         :src="user.avatar"
         :alt="user.nickName"
         :title="user.nickName"
@@ -38,10 +39,16 @@
 </template>
 <script>
 import { qq } from '../../config/login'
+import { setCookieQQLogin, delCookie } from '../../util/cookie'
+import { getUser } from '../../util/getUser'
+import isEmpty from '../../util/isEmpty'
 export default {
+  async fetch() {
+    this.user = getUser()
+  },
   data() {
     return {
-      user: this.$store.getters.getUser || localStorage.getItem('user'),
+      user: {},
       menuList: [
         {
           title: '归档',
@@ -84,17 +91,23 @@ export default {
   methods: {
     qqLogin() {
       const path = this.$route.fullPath
-      sessionStorage.setItem("history",path)
+      sessionStorage.setItem('history', path)
       QC.Login.showPopup({
         appId: qq.appid,
         redirectURI: qq.redirectURI,
       })
     },
     outQQLogin() {
-      QC.Login.signOut();
-      this.$store.dispatch('SetUser',{})
+      delCookie('loginUser')
+      this.user = {}
+      QC.Login.signOut()
     },
-  }
+  },
+  computed: {
+    isLogin() {
+      return isEmpty(this.user)
+    },
+  },
 }
 </script>
 <style lang="less" scoped>

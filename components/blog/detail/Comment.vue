@@ -40,6 +40,7 @@ export default {
         })
         if (status === 200) this.$Message.success('评论成功！')
         else this.$Message.error('评论失败')
+        location.reload()
       }
     },
   },
@@ -64,7 +65,7 @@ export default {
   }
   > button {
     padding: 0.3em 1em;
-    margin-top: .5em;
+    margin-top: 0.5em;
     background-color: #8b0000;
     color: #fff;
     border-radius: 5px;

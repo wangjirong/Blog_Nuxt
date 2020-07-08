@@ -3,28 +3,22 @@ import Vue from 'vue'
 Vue.use(Vuex)
 const store = () => new Vuex.Store({
   state: {
-    // user: {
-    //   _id:"1212",
-    //   nickName:"艾瑞",
-    //   openID:'123123123',
-    //   avatar:"http://qzapp.qlogo.cn/qzapp/101862127/1F75CE8E2AF350BE33F265A379BF1B4C/50"
-    // }
-    user:{}
+    isLogin: false
   },
   getters: {
-    getUser: (state) => state.user
+    getLoginState: (state) => state.isLogin
   },
   mutations: {
-    setUser: (state, user) => {
-      if (user) state.user = user;
-      else state.user = {}
+    setLoginState: (state, isLogin) => {
+      if (isLogin) state.user = isLogin;
+      else state.isLogin = false
     }
   },
   actions: {
 
-    SetUser: ({
+    SetLoginState: ({
       commit
-    }, user) => commit('setUser', user)
+    }, isLogin) => commit('setLoginState', isLogin)
 
   }
 })

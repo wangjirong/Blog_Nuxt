@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { setCookieQQLogin, setCookie } from '../../util/cookie'
 export default {
   layout: 'login',
   data() {
@@ -25,8 +26,6 @@ export default {
       const { data } = await this.$axios.get(
         `/user/qqLogin?access_token=${accessToken}`
       )
-      this.$store.dispatch('SetUser', data)
-      localStorage.setItem("user",data)
       this.loading = false
       this.$message.success('登录成功！')
       const path = sessionStorage.getItem('history')

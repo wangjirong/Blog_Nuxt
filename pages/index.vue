@@ -14,6 +14,8 @@ import Swipper from '../components/public/swipper'
 import BlogItem from '../components/blog/BlogItem'
 import Remark from '../components/Home/remarks'
 
+import { setCookieQQLogin, getCookie } from '../util/cookie'
+
 export default {
   name: 'Home',
   async asyncData({ $axios }) {

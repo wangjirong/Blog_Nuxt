@@ -51,7 +51,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: '~/assets/image/favicon.ico'
+      href: '~static/favicon.ico'
     }],
     script: [{
         src: "http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
@@ -97,11 +97,7 @@ export default {
     {
       src: '@/plugins/mavonEditor',
       ssr: false
-    },
-    {
-      src: '@/plugins/store',
-      ssr: false
-    },
+    }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -124,8 +120,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: "http://localhost:9000"
-    // baseURL: "http://api.cirev.cn/"
+    // baseURL: "http://localhost:9000"
+    baseURL: "http://api.cirev.cn/"
   },
   /*
    ** Content module configuration

@@ -48,6 +48,7 @@ export default {
         })
         if (status === 200) this.$Message.success('留言成功')
         else this.$Message.error('留言失败')
+        location.reload();
       }
     },
     getLocation() {
