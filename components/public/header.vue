@@ -40,12 +40,7 @@
 <script>
 import { qq } from '../../config/login'
 import { setCookieQQLogin, delCookie } from '../../util/cookie'
-import { getUser } from '../../util/getUser'
-import isEmpty from '../../util/isEmpty'
 export default {
-  async fetch() {
-    this.user = getUser()
-  },
   data() {
     return {
       user: {},
@@ -88,6 +83,9 @@ export default {
       ],
     }
   },
+  mounted(){
+    this.user = this.global.getUser()
+  },
   methods: {
     qqLogin() {
       const path = this.$route.fullPath
@@ -105,7 +103,7 @@ export default {
   },
   computed: {
     isLogin() {
-      return isEmpty(this.user)
+      return this.global.isEmpty(this.user)
     },
   },
 }

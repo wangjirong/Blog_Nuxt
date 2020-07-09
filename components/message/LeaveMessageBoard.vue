@@ -31,14 +31,16 @@ export default {
     return {
       text: '',
       location: '',
-      user: this.$store.getters.getUser,
+      user: {},
     }
+  },
+  mounted() {
+    this.user = this.global.getUser()
   },
   methods: {
     async submit() {
       if (!this.text) this.$Message.error('留言内容不能为空！')
-      else if (JSON.stringify(this.user) === '{}')
-        this.$Message.error('请先登录！')
+      else if (this.global.isEmpty(this.user)) this.$Message.error('请先登录！')
       else {
         const { status } = await this.$axios.post('/message/leaveMessage', {
           user: this.user,
@@ -48,7 +50,7 @@ export default {
         })
         if (status === 200) this.$Message.success('留言成功')
         else this.$Message.error('留言失败')
-        location.reload();
+        location.reload()
       }
     },
     getLocation() {

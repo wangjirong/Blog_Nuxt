@@ -97,6 +97,9 @@ export default {
     {
       src: '@/plugins/mavonEditor',
       ssr: false
+    },
+    {
+      src: '@/plugins/globalFun',
     }
   ],
   /*

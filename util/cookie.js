@@ -1,4 +1,3 @@
-import isEmpty from './isEmpty'
 //获取cookie、
 export function getCookie(name) {
   var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");

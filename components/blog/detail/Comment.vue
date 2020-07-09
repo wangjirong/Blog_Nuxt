@@ -24,14 +24,16 @@ export default {
   data() {
     return {
       text: '',
-      user: this.$store.getters.getUser,
+      user: {},
     }
+  },
+   mounted(){
+    this.user = this.global.getUser()
   },
   methods: {
     async submit() {
       if (!this.text) this.$Message.error('评论不能为空')
-      else if (JSON.stringify(this.user) === '{}')
-        this.$Message.error('请先登录！')
+      else if (this.global.isEmpty(this.user)) this.$Message.error('请先登录！')
       else {
         const { status } = await this.$axios.post(`/blog/comment`, {
           text: this.text,

@@ -29,7 +29,7 @@
                 alt
               />
               <img
-                src="https://erics-bucket.oss-cn-beijing.aliyuncs.com/reWriteBlogSource/image/iriInfo/weixin.JPG"
+                src="https://iri-blog.oss-cn-beijing.aliyuncs.com/client-image/about/irui_weichat.png"
                 slot="content"
                 width="160"
                 height="160"
