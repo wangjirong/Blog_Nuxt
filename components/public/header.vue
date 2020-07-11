@@ -154,6 +154,10 @@ export default {
         line-height: 7vh;
         font-size: 1.1em;
         color: #777;
+        &:hover{
+          color: darkred;
+          text-shadow: 1px 1px 1px darkred;
+        }
       }
       .nuxt-link-exact-active {
         color: lightgreen;

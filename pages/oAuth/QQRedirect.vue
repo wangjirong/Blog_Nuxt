@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { setCookieQQLogin, setCookie } from '../../util/cookie'
+import { setCookieQQLogin, delCookie } from '../../util/cookie'
 export default {
   layout: 'login',
   data() {
@@ -23,6 +23,7 @@ export default {
     async login() {
       this.$route.fullPath.match(/#access_token=([0-9a-zA-Z]+)&/)
       const accessToken = RegExp.$1
+      delCookie('token')
       const { data } = await this.$axios.get(
         `/user/qqLogin?access_token=${accessToken}`
       )
