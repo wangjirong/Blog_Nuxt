@@ -23,5 +23,10 @@ export const formDataBlog = blog => {
   blog.monthYear = getYearAndMonth(blog.date)
   blog.tag = blog.tags.join('、')
   blog.time = getJustTime(blog.date)
+
+  // 文章评论按照时间排序
+  blog.comment.sort((a, b) =>
+    b.date.localeCompare(a.date)
+  )
   return blog;
 }

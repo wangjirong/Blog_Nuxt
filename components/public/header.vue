@@ -39,7 +39,7 @@
 </template>
 <script>
 import { qq } from '../../config/login'
-import { setCookieQQLogin, delCookie } from '../../util/cookie'
+import { setCookieQQLogin, delCookie, getCookie } from '../../util/cookie'
 export default {
   data() {
     return {
@@ -83,8 +83,14 @@ export default {
       ],
     }
   },
-  mounted(){
+  fetch() {
+    console.log('cookie------' + getCookie('token'))
+
+    console.log(this.global.getUser())
+  },
+  mounted() {
     this.user = this.global.getUser()
+    console.log(this.user)
   },
   methods: {
     qqLogin() {
@@ -154,7 +160,7 @@ export default {
         line-height: 7vh;
         font-size: 1.1em;
         color: #777;
-        &:hover{
+        &:hover {
           color: darkred;
           text-shadow: 1px 1px 1px darkred;
         }
